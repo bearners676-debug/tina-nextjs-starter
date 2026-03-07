@@ -1,6 +1,10 @@
+'use client';
+
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
+import { useCart } from '@/lib/cart-context';
+import { useState } from 'react';
 
 export default function HomePage() {
   return (
@@ -32,23 +36,35 @@ export default function HomePage() {
         </h2>
         <div className="products-grid">
           <ProductCard 
+            id="product-1"
             title="Daily Mindfulness Journal"
             price={19.99}
+            type="journal"
+            category="Mindfulness"
             link="/journals"
           />
           <ProductCard 
+            id="product-2"
             title="Complete Productivity Planner"
             price={24.99}
+            type="planner"
+            category="Daily"
             link="/planners"
           />
           <ProductCard 
+            id="product-3"
             title="Creative Writing Workbook"
             price={16.99}
+            type="ebook"
+            category="Creative"
             link="/ebooks"
           />
           <ProductCard 
+            id="product-4"
             title="Goal Setting Bundle"
             price={29.99}
+            type="bundle"
+            category="Productivity"
             link="/bundles"
           />
         </div>
@@ -95,8 +111,17 @@ export default function HomePage() {
   );
 }
 
-// Product Card Component
-function ProductCard({ title, price, link }: { title: string; price: number; link: string }) {
+// Product Card Component with Add to Cart
+function ProductCard({ id, title, price, type, category, link }: { id: string; title: string; price: number; type: string; category: string; link: string }) {
+  const { addToCart } = useCart();
+  const [added, setAdded] = useState(false);
+
+  const handleAddToCart = () => {
+    addToCart({ id, title, price, type, category });
+    setAdded(true);
+    setTimeout(() => setAdded(false), 2000);
+  };
+
   return (
     <div className="product-card">
       <div style={{ width: '100%', height: '300px', background: 'linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '4rem', color: '#ccc' }}>
@@ -105,12 +130,44 @@ function ProductCard({ title, price, link }: { title: string; price: number; lin
       <div style={{ padding: '1.5rem' }}>
         <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem', color: '#333' }}>{title}</h3>
         <p style={{ fontSize: '1.5rem', color: '#7CB342', fontWeight: 700, marginBottom: '1rem' }}>${price.toFixed(2)}</p>
-        <Link 
-          href={link}
-          style={{ display: 'block', width: '100%', padding: '0.8rem', background: '#333', color: 'white', borderRadius: '6px', fontSize: '1rem', fontWeight: 600, textAlign: 'center', textDecoration: 'none' }}
-        >
-          Learn More
-        </Link>
+        
+        <div style={{ display: 'flex', gap: '0.5rem' }}>
+          <button
+            onClick={handleAddToCart}
+            style={{ 
+              flex: 1, 
+              padding: '0.8rem', 
+              background: added ? '#FFB300' : '#7CB342', 
+              color: 'white', 
+              border: 'none',
+              borderRadius: '6px', 
+              fontSize: '1rem', 
+              fontWeight: 600, 
+              cursor: 'pointer',
+              transition: 'all 0.3s'
+            }}
+          >
+            {added ? '✓ Added!' : 'Add to Cart'}
+          </button>
+          <Link 
+            href={link}
+            style={{ 
+              flex: 1, 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center',
+              padding: '0.8rem', 
+              background: '#333', 
+              color: 'white', 
+              borderRadius: '6px', 
+              fontSize: '1rem', 
+              fontWeight: 600, 
+              textDecoration: 'none' 
+            }}
+          >
+            Details
+          </Link>
+        </div>
       </div>
     </div>
   );
