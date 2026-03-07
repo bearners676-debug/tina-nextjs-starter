@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import CartIcon from './CartIcon';
 
 export default function Navigation() {
   return (
@@ -22,12 +23,7 @@ export default function Navigation() {
           placeholder="Search..." 
           style={{ padding: '0.6rem 1rem', border: '1px solid #ddd', borderRadius: '6px', fontSize: '0.95rem', width: '200px' }}
         />
-        <Link 
-          href="/cart"
-          style={{ padding: '0.6rem 1.5rem', background: '#7CB342', color: 'white', borderRadius: '6px', fontWeight: 600, textDecoration: 'none' }}
-        >
-          Cart
-        </Link>
+        <CartIcon />
       </div>
     </nav>
   );
