@@ -1,20 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>TinaCMS</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module">
-      import { TinaCMS } from 'https://cdn.jsdelivr.net/npm/tinacms@2.4.1/dist/tinacms.es.js'
-      
-      const cms = new TinaCMS({
-        clientId: '4dfb9c3f-42f0-491d-b780-55ae88ef4ba3',
-        branch: 'main',
-        token: '76cb14783483c7f0c9b9197ed6c730a7ae9',
-      })
-    </script>
-  </body>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TinaCMS Admin</title>
+</head>
+<body>
+  <h1>Redirecting to TinaCMS...</h1>
+  <p>If you are not redirected, <a href="https://app.tina.io/projects/4dfb9c3f-42f0-491d-b780-55ae88ef4ba3/edit?branch=main">click here</a>.</p>
+  
+  <script>
+    // Simple redirect to TinaCMS Cloud
+    setTimeout(function() {
+      window.location.href = 'https://app.tina.io/projects/4dfb9c3f-42f0-491d-b780-55ae88ef4ba3/edit?branch=main';
+    }, 1000);
+  </script>
+</body>
 </html>
