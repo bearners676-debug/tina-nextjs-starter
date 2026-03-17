@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 export default function AdminPage() {
   useEffect(() => {
     // Redirect to TinaCMS Cloud editor
-    const clientId = '4dfb9c3f-42f0-491d-b780-55ae88ef4ba3';
+    const clientId = 'e238ad03-447f-4ad3-924b-7507f1ba89ff';
     const branch = 'main';
     const returnUrl = window.location.origin;
     
