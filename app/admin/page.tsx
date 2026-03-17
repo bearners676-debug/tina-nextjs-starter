@@ -65,7 +65,7 @@ export default function AdminPage() {
           marginTop: '1.5rem'
         }}>
           If not redirected, <a 
-            href={`https://app.tina.io/projects/4dfb9c3f-42f0-491d-b780-55ae88ef4ba3/edit?branch=main`}
+            href="https://app.tina.io/projects/e238ad03-447f-4ad3-924b-7507f1ba89ff/edit?branch=main"
             style={{ color: '#7CB342', textDecoration: 'underline' }}
           >
             click here
