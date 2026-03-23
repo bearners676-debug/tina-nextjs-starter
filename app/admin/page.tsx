@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 export default function AdminPage() {
   useEffect(() => {
     // Redirect to TinaCMS Cloud editor
-    const clientId = 'e238ad03-447f-4ad3-924b-7507f1ba89ff';
+    const clientId = '5b4a2a47-e75a-470a-a8de-fa4b3c6b6343';
     const branch = 'main';
     const returnUrl = window.location.origin;
     
@@ -65,7 +65,7 @@ export default function AdminPage() {
           marginTop: '1.5rem'
         }}>
           If not redirected, <a 
-            href="https://app.tina.io/projects/e238ad03-447f-4ad3-924b-7507f1ba89ff/edit?branch=main"
+            href="https://app.tina.io/projects/5b4a2a47-e75a-470a-a8de-fa4b3c6b6343/edit?branch=main"
             style={{ color: '#7CB342', textDecoration: 'underline' }}
           >
             click here
