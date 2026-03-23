@@ -4,11 +4,15 @@ import { useEffect } from 'react';
 
 export default function AdminPage() {
   useEffect(() => {
-    // Redirect to TinaCMS Cloud editor
-    const clientId = '5b4a2a47-e75a-470a-a8de-fa4b3c6b6343';
+    const clientId = process.env.NEXT_PUBLIC_TINA_CLIENT_ID;
     const branch = 'main';
     const returnUrl = window.location.origin;
-    
+
+    if (!clientId) {
+      console.error("Client ID is missing");
+      return;
+    }
+
     window.location.href = `https://app.tina.io/projects/${clientId}/edit?branch=${branch}&returnUrl=${returnUrl}`;
   }, []);
 
@@ -46,39 +50,9 @@ export default function AdminPage() {
           marginBottom: '1.5rem',
           lineHeight: 1.6
         }}>
-          Taking you to the TinaCMS admin panel where you can edit your content.
-        </p>
-        
-        <div style={{
-          display: 'inline-block',
-          width: '40px',
-          height: '40px',
-          border: '4px solid #f3f3f3',
-          borderTop: '4px solid #7CB342',
-          borderRadius: '50%',
-          animation: 'spin 1s linear infinite'
-        }}></div>
-        
-        <p style={{ 
-          color: '#999', 
-          fontSize: '0.85rem',
-          marginTop: '1.5rem'
-        }}>
-          If not redirected, <a 
-            href="https://app.tina.io/projects/5b4a2a47-e75a-470a-a8de-fa4b3c6b6343/edit?branch=main"
-            style={{ color: '#7CB342', textDecoration: 'underline' }}
-          >
-            click here
-          </a>
+          Taking you to the TinaCMS admin panel.
         </p>
       </div>
-      
-      <style jsx>{`
-        @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-      `}</style>
     </div>
   );
 }
