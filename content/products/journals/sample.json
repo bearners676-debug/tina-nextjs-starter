@@ -1,0 +1,8 @@
+{
+  "id": "journal-1",
+  "title": "Daily Journal",
+  "price": 5,
+  "category": "Mindfulness",
+  "description": "A simple daily journal to track your thoughts.",
+  "featured": true
+}
