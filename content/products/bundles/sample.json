@@ -1,0 +1,13 @@
+{
+  "id": "bundle-1",
+  "title": "Productivity Bundle",
+  "price": 15,
+  "originalPrice": 25,
+  "savings": 40,
+  "description": "A bundle of productivity tools.",
+  "items": [
+    { "name": "Planner" },
+    { "name": "Journal" }
+  ],
+  "featured": true
+}
